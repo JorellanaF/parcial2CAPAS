@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Nueva Categoria</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="row m-3">
+            <h1 class="col-12 justify-content-center">Ingresa una Nueva Categoria</h1>
+        </div>
+        <form class="col-12" method="post" th:object="${categoria}" th:action="@{/validarC}">
+            <div class="form-group row m-3">
+                <label class="col-2 text-center">Categoria</label>
+                <input class="col-3" type="text" th:field="*{categoria}" placeholder="Ingrese categoria">
+                <span class="col-3" th:errors="*{categoria}" style="color: #FF0000"></span>
+            </div>
+            <div class="form-group row justify-content-md-center m-3">
+                <div class="col-12 row justify-content-center">
+                    <input class="col- btn btn-success" type="submit" value="Guardar">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

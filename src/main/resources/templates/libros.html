@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Lista de Libros</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="row justify-content-md-center">
+    <div class="row justify-content-center">
+        <h1 class="col-12 ">Listado de Libros</h1>
+    </div>
+</div>
+<div class="row m-0">
+    <table class="col-12">
+        <thead style="background: #81d4fa; ">
+        <th class="col-">Titulo</th>
+        <th class="col-">Autor</th>
+        <th class="col-">ISBN</th>
+        <th class="col-">Categoria</th>
+        <th class="col-">Fecha de Ingreso</th>
+        </thead>
+        <th:block th:each="libros, row:${libros}">
+            <tr style="background: #e1f5fe;">
+                <th th:text="${libros.titulo}"></th>
+                <th th:text="${libros.autor}"></th>
+                <th th:text="${libros.isbn}"></th>
+                <th th:text="${libros.categoria.categoria}"></th>
+                <th th:text="${libros.fechaIngreso}"></th>
+            </tr>
+        </th:block>
+    </table>
+</div>
+<div class="row justify-content-end m-3">
+    <form class="col-12" th:action="@{/index}">
+        <div class="row justify-content-end">
+            <div class="col-">
+                <input type="submit" value="regresar">
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

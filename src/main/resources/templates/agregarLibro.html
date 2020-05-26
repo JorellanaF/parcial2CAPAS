@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Nuevo Libro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="row m-3">
+            <h1 class="col-12 justify-content-center">Ingresa un Nuevo Libro</h1>
+        </div>
+        <form class="col-12" method="post" th:object="${libro}" th:action="@{/validarL}">
+            <div class="form-group row m-3">
+                <label class="col-2 text-center">Titulo</label>
+                <input class="col-3" type="text" th:field="*{titulo}" placeholder="Ingrese titulo">
+                <span class="col-3" th:errors="*{titulo}" style="color: #FF0000"></span>
+            </div>
+            <div class="form-group row m-3">
+                <label class="col-2 text-center">Autor</label>
+                <input class="col-3" type="text" th:field="*{autor}" placeholder="Ingrese autor">
+                <span class="col-3" th:errors="*{autor}" style="color: #FF0000"></span>
+            </div>
+            <div class="form-group row m-3">
+                <label class="col-2 text-center">ISBN</label>
+                <input class="col-3" type="number" th:field="*{isbn}" placeholder="Ingrese el isbn">
+                <span class="col-3" th:errors="*{isbn}" style="color: #FF0000"></span>
+            </div>
+            <div class="form-group row m-3">
+                <label class="col-2 text-center">Categoria</label>
+                <select class="col-3" name="importancia" id="importancia" th:field="*{codigoCategoria}">
+                    <option class="col-12" th:each="categoria, row: ${categorias}" th:value="${categoria.codigoCategoria}" th:text="${categoria.categoria}"></option>
+                </select>
+            </div>
+            <div class="form-group row m-3">
+                <label class="col-2 text-center">Estado</label>
+                <div class="form-group form-check form-check-inline col-2">
+                    <input class="form-check-input" type="radio" name="estado1" id="estado1" th:field="*{estado}" th:value="${true}">
+                    <label class="form-check-label" for="estado1">Disponible</label>
+                </div>
+                <div class="form-group form-check form-check-inline col-2">
+                    <input class="form-check-input" type="radio" name="estado2" id="estado2" th:field="*{estado}" th:value="${false}">
+                    <label class="form-check-label" for="estado2">Agotado</label>
+                </div>
+                <span class="col-3" th:errors="*{estado}" style="color: #FF0000"></span>
+            </div>
+            <div class="form-group row justify-content-md-center m-3">
+                <div class="col-12 row justify-content-center">
+                    <input class="col- btn btn-success" type="submit" value="Guardar">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

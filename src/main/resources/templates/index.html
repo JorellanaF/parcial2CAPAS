@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="row m-3">
+            <h1 class="col-12 justify-content-center">Bienvenido</h1>
+        </div>
+        <div class="col-12 row justify-content-md-center">
+            <div class="col-">
+                <form method="post" th:action="@{/addLibro}">
+                    <button type="submit" class="btn btn-success px-4 m-2">Ingresar Libro</button>
+                </form>
+            </div>
+            <div class="col-">
+                <form method="post" th:action="@{/addCategoria}">
+                    <button type="submit" class="btn btn-warning px-4 m-2">Ingresar Categoria</button>
+                </form>
+            </div>
+            <div class="col-">
+                <form method="post" th:action="@{/libros}">
+                    <button type="submit" class="btn btn-info px-5 m-2">Ver Libros</button>
+                </form>
+            </div>
+        </div>
+        <div class="row m-3">
+            <h1 class="col-12 justify-content-center" th:text="${exitoL}"></h1>
+        </div>
+        <div class="row m-3">
+            <h1 class="col-12 justify-content-center" th:text="${exitoC}"></h1>
+        </div>
+    </div>
+</div>
+</body>
+</html>
